@@ -1,0 +1,60 @@
+from: markdown+fenced_code_attributes+yaml_metadata_block
+to: pdf
+standalone: true
+
+pdf-engine: lualatex
+
+# TOC and section numbering
+table-of-contents: false
+number-sections: false
+
+dpi: 300
+
+ascii: true
+embed-resources: true
+highlight-style: kate
+
+variables:
+  fontsize: 16pt
+  linestretch: 1.25
+
+  documentclass: scrartcl  # or whatever you use
+  classoption:
+    - headsepline=false
+    - footsepline=false
+    - headings=normal
+  pagestyle: empty
+
+#  listings: true
+  minted: true
+  minted-options:
+    - breaklines
+    - breakanywhere
+    - linenos=false
+    - tabsize=2
+    - fontsize=\small
+
+  mainfont: "Amazon Ember"
+  sansfont: "Amazon Ember"
+  monofont: "Fira Code"
+
+  geometry:
+    # --- Page Dimensions ---
+#    - "paperwidth=12.2cm"   # Approx. width of a 7" Kindle screen
+#    - "paperheight=16.3cm"  # Approx. height of a 7" Kindle screen
+    - "margin=15mm"        # A comfortable margin for readability
+#    - heightrounded
+    - a4paper
+
+#  colorlinks: false
+#  linkcolor: black
+#  urlcolor: black
+#  links-as-notes: true   # Makes raw URLs footnotes; nicer on small pages
+#  secnumdepth: 3
+#
+
+include-in-header:
+  - /data/config/header.tex
+
+include-before-body:
+  - /data/config/disable-headers.tex

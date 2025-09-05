@@ -12,7 +12,7 @@ RUN tlmgr update --self
 RUN tlmgr install fontspec luaotfload soul adjustbox babel-german background bidi \
     collectbox csquotes everypage filehook footmisc footnotebackref \
     framed fvextra letltxmacro ly1 mdframed mweights needspace pagecolor \
-    titling ucharcat unicode-math upquote xecjk xurl zref draftwatermark minted emoji
+    titling ucharcat unicode-math upquote xecjk xurl zref draftwatermark minted emoji enumitem
 
 # Copy your custom TTF fonts
 COPY fonts/*.ttf /usr/local/share/fonts/

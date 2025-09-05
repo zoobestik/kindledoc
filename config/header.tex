@@ -47,6 +47,12 @@
 \usepackage{fontspec}
 \defaultfontfeatures{Renderer=Harfbuzz}
 
+% Reduce horizontal spacing in lists (bullet/number gap and left indent)
+\usepackage{enumitem}
+\setlist[itemize]{labelsep=0.4em, leftmargin=1.2em}
+\setlist[enumerate]{labelsep=0.4em, leftmargin=1.2em}
+\setlist[description]{labelsep=0.4em, leftmargin=1.2em}
+
 \directlua{
   luaotfload.add_fallback("emoji_fallback", {
     "Apple Color Emoji:mode=harf;",

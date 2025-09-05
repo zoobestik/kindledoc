@@ -50,7 +50,7 @@ cp /Users/chernenko/Library/Fonts/* "$script_dir/fonts/"
 
 cp -f "$input_arg" "$script_dir/input/"
 
-docker build --platform=linux/amd64 -t pandoc "$script_dir"
+#docker build --platform=linux/amd64 -t pandoc "$script_dir"
 
 docker run --rm  --platform=linux/amd64 \
       --volume "$script_dir:/data" \

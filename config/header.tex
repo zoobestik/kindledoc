@@ -41,3 +41,20 @@
 }
 \let\OldUrl\url
 \renewcommand{\url}[1]{\ULurl{#1}}
+
+% Emoji and symbol fallback for LuaLaTeX:
+% Use HarfBuzz renderer and fall back to Noto Color Emoji, then DejaVu Sans.
+\usepackage{fontspec}
+\defaultfontfeatures{Renderer=Harfbuzz}
+
+\directlua{
+  luaotfload.add_fallback("emoji_fallback", {
+    "Noto Color Emoji:mode=harf;",
+    "DejaVu Sans:mode=harf;"
+  })
+}
+
+% Re-apply fonts with fallback so missing glyphs (e.g., emoji) render automatically.
+\setmainfont{Amazon Ember}[RawFeature={fallback=emoji_fallback}]
+\setsansfont{Amazon Ember}[RawFeature={fallback=emoji_fallback}]
+\setmonofont{Fira Code}[RawFeature={fallback=emoji_fallback}]

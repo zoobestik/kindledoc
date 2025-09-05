@@ -2,7 +2,11 @@ from: markdown+fenced_code_attributes+yaml_metadata_block
 to: pdf
 standalone: true
 
+template: eisvogel
+
 pdf-engine: lualatex
+pdf-engine-opt:
+  - "-shell-escape"
 
 # TOC and section numbering
 table-of-contents: false
@@ -15,7 +19,7 @@ embed-resources: true
 highlight-style: kate
 
 variables:
-  fontsize: 16pt
+  fontsize: 18pt
   linestretch: 1.25
 
   documentclass: scrartcl  # or whatever you use
@@ -25,18 +29,14 @@ variables:
     - headings=normal
   pagestyle: empty
 
-#  listings: true
-  minted: true
-  minted-options:
-    - breaklines
-    - breakanywhere
-    - linenos=false
-    - tabsize=2
-    - fontsize=\small
+  listings: true
 
   mainfont: "Amazon Ember"
   sansfont: "Amazon Ember"
   monofont: "Fira Code"
+
+  book: true
+  disable-header-and-footer: true
 
   geometry:
     # --- Page Dimensions ---
@@ -57,4 +57,4 @@ include-in-header:
   - /data/config/header.tex
 
 include-before-body:
-  - /data/config/disable-headers.tex
+  - /data/config/before-body.tex

@@ -1,31 +1,26 @@
-\usepackage{microtype} % better spacing/hyphenation
-\usepackage{enumitem}  % compact lists
-\usepackage{parskip}   % space between paragraphs, no indent
-\usepackage{graphicx}  % image scaling
-
-% Load packages for color and framing
 \usepackage{xcolor}
-\usepackage[framemethod=default]{mdframed}
+\usepackage{listings}
+\usepackage{fancyvrb}
 
-% 1. Define your custom background color
-\definecolor{codebg}{HTML}{F5F5F5} % A nice light gray
+\definecolor{codebg}{HTML}{F7F7F7} % choose any hex color you like
+\definecolor{shadecolor}{HTML}{F7F7F7} % background for code blocks
 
-% 2. Create a new framed environment for your code
-\newmdenv[
-  backgroundcolor=codebg,   % Use the color we just defined
-  linecolor=gray!20,        % A very light gray for the border
-  outerlinewidth=1pt,       % The border thickness
-  roundcorner=2pt,          % Slightly rounded corners
-  innertopmargin=10pt,      % Padding above the code
-  innerbottommargin=10pt,   % Padding below the code
-  innerleftmargin=10pt,     % Padding on the left
-  innerrightmargin=10pt,    % Padding on the right
-  leftmargin=0pt,           % No extra margin outside the frame
-  rightmargin=0pt,
-  skipabove=\topsep,        % Space above the frame
-  skipbelow=\topsep
-]{codeframe}
+\lstset{
+  backgroundcolor=\color{codebg},
+  % optional niceties:
+  frame=single,
+  rulecolor=\color{black},
+  framesep=6pt
+}
 
-% 3. Automatically wrap all 'minted' environments with our new frame
-\BeforeBeginEnvironment{minted}{\begin{codeframe}}
-\AfterEndEnvironment{minted}{\end{codeframe}}
+% Inline code background without soul/fancyvrb
+\makeatletter
+\let\OldTexttt\texttt
+\newcommand{\InlineCode}[1]{%
+  \begingroup
+  \setlength{\fboxsep}{1.5pt}% padding around inline code
+  \colorbox{codebg}{\OldTexttt{#1}}%
+  \endgroup
+}
+\renewcommand{\texttt}[1]{\InlineCode{#1}}
+\makeatother

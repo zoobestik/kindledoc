@@ -25,10 +25,10 @@ if [ ! -f "$input" ]; then
   exit 3
 fi
 
-if ! command -v pandoc >/dev/null 2>&1; then
-  echo "Error: pandoc not found in PATH. Install pandoc and try again." >&2
-  exit 4
-fi
+#if ! command -v pandoc >/dev/null 2>&1; then
+#  echo "Error: pandoc not found in PATH. Install pandoc and try again." >&2
+#  exit 4
+#fi
 
 base="$(basename -- "$input")"
 raw_title="${base%.*}"
@@ -52,11 +52,9 @@ docker run --rm  --platform=linux/amd64 \
       --volume "$script_dir:/data" \
       --user "$(id -u):$(id -g)" \
       pandoc "/data/input/$base" -o "/data/$output" \
-        --template eisvogel \
         --defaults=/data/config/$type.$ext.yaml \
         -V title="$title"
-#        --css=/data/config/$type.$ext.css
 
-open "$script_dir/$output"
+open "$script_dir/output"
 
-echo "Created EPUB: $script_dir/output"
+echo "Created EPUB: $script_dir/$output"

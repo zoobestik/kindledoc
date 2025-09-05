@@ -41,8 +41,12 @@ type="kindle"
 script_dir="/Users/chernenko/code/pandoc"
 output="output/$raw_title.$ext"
 
+mkdir -p "$script_dir/fonts"
 mkdir -p "$script_dir/input"
 mkdir -p "$script_dir/output"
+
+cp '/System/Library/Fonts/Apple Color Emoji.ttc' "$script_dir/fonts/"
+cp /Users/chernenko/Library/Fonts/* "$script_dir/fonts/"
 
 cp -f "$input_arg" "$script_dir/input/"
 

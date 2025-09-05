@@ -16,11 +16,28 @@
 % Inline code background without soul/fancyvrb
 \makeatletter
 \let\OldTexttt\texttt
-\newcommand{\InlineCode}[1]{%
+\newcommand{\InlineCode}[1]{
   \begingroup
   \setlength{\fboxsep}{1.5pt}% padding around inline code
-  \colorbox{codebg}{\OldTexttt{#1}}%
+  \colorbox{codebg}{\OldTexttt{#1}}
   \endgroup
 }
 \renewcommand{\texttt}[1]{\InlineCode{#1}}
 \makeatother
+
+\usepackage[normalem]{ulem} % provides \uline without changing \emph
+
+% Underline the visible text of \href
+\makeatletter
+\let\OldHref\href
+\renewcommand{\href}[2]{\OldHref{#1}{\uline{#2}}}
+\makeatother
+
+% Underline bare URLs (\url). Use url’s DeclareUrlCommand so verbatim handling stays intact.
+\DeclareUrlCommand\ULurl{
+  \def\UrlFont{\ttfamily}
+  \urlstyle{same}
+  \uline
+}
+\let\OldUrl\url
+\renewcommand{\url}[1]{\ULurl{#1}}

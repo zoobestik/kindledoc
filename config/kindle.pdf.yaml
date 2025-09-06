@@ -19,7 +19,7 @@ embed-resources: true
 highlight-style: kate
 
 variables:
-  fontsize: 18pt
+  fontsize: 20pt
   linestretch: 1.25
 
   documentclass: scrartcl  # or whatever you use
@@ -42,7 +42,7 @@ variables:
     # --- Page Dimensions ---
 #    - "paperwidth=12.2cm"   # Approx. width of a 7" Kindle screen
 #    - "paperheight=16.3cm"  # Approx. height of a 7" Kindle screen
-    - "margin=15mm"        # A comfortable margin for readability
+    - "margin=10mm"        # A comfortable margin for readability
 #    - heightrounded
     - a4paper
 

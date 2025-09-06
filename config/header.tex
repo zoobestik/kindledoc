@@ -65,3 +65,10 @@
 \setmainfont{Amazon Ember}[RawFeature={fallback=emoji_fallback}]
 \setsansfont{Amazon Ember}[RawFeature={fallback=emoji_fallback}]
 \setmonofont{Fira Code}[RawFeature={fallback=emoji_fallback}]
+
+% Reduce font size inside tables to avoid column overflow
+\usepackage{etoolbox}
+% Apply smaller font inside tabular/longtable and table floats
+\AtBeginEnvironment{tabular}{\scriptsize}
+\AtBeginEnvironment{longtable}{\scriptsize}
+\AtBeginEnvironment{table}{\scriptsize}

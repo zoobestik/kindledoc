@@ -72,3 +72,15 @@
 \AtBeginEnvironment{tabular}{\scriptsize}
 \AtBeginEnvironment{longtable}{\scriptsize}
 \AtBeginEnvironment{table}{\scriptsize}
+
+% Поддержка кликабельных endnotes вместо обычных footnotes
+\usepackage{enotez}
+\let\footnote=\endnote
+\providecommand{\notesname}{Notes}
+
+\setenotez{
+  backref=true,
+  list-name={\notesname}
+}
+
+\AtEndDocument{\printendnotes}

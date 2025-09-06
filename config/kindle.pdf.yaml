@@ -54,7 +54,7 @@ variables:
 #
 
 include-in-header:
-  - /data/config/header.tex
+  - /data/config/header.kindle.tex
 
 include-before-body:
-  - /data/config/before-body.tex
+  - /data/config/before.kindle.tex

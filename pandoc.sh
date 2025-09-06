@@ -41,21 +41,22 @@ type="kindle"
 script_dir="/Users/chernenko/code/pandoc"
 output="output/$raw_title.$ext"
 
-mkdir -p "$script_dir/fonts"
 mkdir -p "$script_dir/input"
 mkdir -p "$script_dir/output"
 
-cp '/System/Library/Fonts/Apple Color Emoji.ttc' "$script_dir/fonts/"
-cp /Users/chernenko/Library/Fonts/* "$script_dir/fonts/"
+image="ghcr.io/zoobestik/kindledoc:latest"
+
+#mkdir -p "$script_dir/fonts"
+#cp '/System/Library/Fonts/Apple Color Emoji.ttc' "$script_dir/fonts/"
+#cp /Users/chernenko/Library/Fonts/* "$script_dir/fonts/"
+#docker build --platform=linux/amd64 -t "$image" "$script_dir"
 
 cp -f "$input_arg" "$script_dir/input/"
-
-#docker build --platform=linux/amd64 -t pandoc "$script_dir"
 
 docker run --rm  --platform=linux/amd64 \
       --volume "$script_dir:/data" \
       --user "$(id -u):$(id -g)" \
-      pandoc "/data/input/$base" -o "/data/$output" \
+      "$image" "/data/input/$base" -o "/data/$output" \
         --defaults=/data/config/$type.$ext.yaml \
         -V title="$title"
 

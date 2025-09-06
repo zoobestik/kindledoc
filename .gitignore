@@ -6,3 +6,5 @@
 /output
 
 /luatex.*
+
+.DS_store

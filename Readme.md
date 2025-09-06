@@ -7,6 +7,10 @@ focusing on readability and correct rendering of code/emoji.
 ## Usage
 
 ```bash
+# Checkout the script
+mkdir -p ~/code/pandoc
+curl -s https://raw.githubusercontent.com/zoobestik/kindledoc/main/pandoc.sh > ~/code/pandoc/pandoc.sh
+
 # Add alias
 echo "alias kindledoc='~/code/pandoc/pandoc.sh'" >> ~/.zshrc
 ```

@@ -14,12 +14,11 @@ number-sections: false
 
 dpi: 300
 
-ascii: true
 embed-resources: true
 highlight-style: kate
 
 variables:
-  fontsize: 20pt
+  fontsize: 22pt
   linestretch: 1.25
 
   documentclass: scrartcl  # or whatever you use
